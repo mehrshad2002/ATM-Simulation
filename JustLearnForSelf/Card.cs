@@ -10,7 +10,7 @@ namespace JustLearnForSelf
     {
          public string CardNumber()
         {
-            const string StrVall = "6104123409876789";
+            const string StrVall = "6104209509876316";
             return StrVall;
         }
     }

@@ -51,6 +51,7 @@ namespace JustLearnForSelf
             IO io = new IO();
             Bank bank = new Bank();
             string Card4digit = cardNumber.Substring(0, 4);
+            int Flag = 1;
             switch (Card4digit)
             {
                 case "6104":
@@ -59,10 +60,12 @@ namespace JustLearnForSelf
                     io.PrintAt("\n------\nEnter How many Hezaar Toman You Need : ");
                     MoneyWant = Convert.ToInt32(io.Get());
                     io.Print("------\n");
+
                     foreach (UserAccount userAccount in user)
                     {
-                        if (userAccount.NumberCard == cardNumber)
+                        if (cardNumber == userAccount.NumberCard )
                         {
+
                             int MoneyInt = Convert.ToInt32(userAccount.Money);// money in user account 
                             if (MoneyInt < MoneyWant)
                             {
@@ -77,10 +80,11 @@ namespace JustLearnForSelf
                                 string NameUser;
                                 foreach (UserAccount users in user)
                                 {
-                                    if (userAccount.NumberCard == cardNumber)
+                                    if (String.Equals(cardNumber ,userAccount.NumberCard))
                                     {
-                                        NameUser = users.Name;
+                                        NameUser = userAccount.Name;
                                         File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);
+                                        Flag = 0;
                                     }
                                 }
                             }
@@ -138,8 +142,8 @@ namespace JustLearnForSelf
                                 {
                                     if (userAccount.NumberCard == cardNumber)
                                     {
-                                        NameUser = users.Name;
-                                        int SumGig = Convert.ToInt32(File.ReadAllText($"./MobileData/{NameUser}.txt"));
+                                        NameUser = userAccount.Name;
+                                        int SumGig = Convert.ToInt32(File.ReadAllText($"../../../txtData/MoneyData/{NameUser}.txt"));
                                         SumGig += GigWant;
                                         File.WriteAllText($"../../../txtData/MobileData/{NameUser}.txt", Convert.ToString(SumGig));
                                         File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);

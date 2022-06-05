@@ -35,8 +35,8 @@ namespace JustLearnForSelf
         public bool GetCommand(List<UserAccount> user)
         {
             Print("Please Enter Your Command Number! || #<Commnad>");
-            Print("1-See Your Account\n2-Get Money\n3-Send Money" +
-                "\n4-Get Charge\n5-Send Charge\n6-Exite");
+            Print("1-See Your Account\n2-Get Money\n3-Get Charge" +
+                "\n4-Send Charge\n6-Exite");
             PrintAt("Enter Your Command : ");
             var CommandVal = Get();
             if( CommandVal == "6")
@@ -65,13 +65,10 @@ namespace JustLearnForSelf
                     break;
 
                 case "3":
-                    break;
-
-                case "4":
                     command.GetCharge(CardNumber , user);
                     break;
 
-                case "5":
+                case "4":
                     command.SendCharge(CardNumber , user);
                     break;
 

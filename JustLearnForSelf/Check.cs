@@ -15,27 +15,23 @@
                 if( i == 1 )
                 {
                     io.Print("Welcome to the Mellat Bank.");
-                    io.PrintAt("Enter Your Password<attempt 1> : "); 
                 }
 
-
+                io.PrintAt($"Enter Your Password<attempt{i}> : "); 
                 Password = io.Get();// get password from user 
 
                 if ( Password == PassVal)
                 {
                     Flag = true;
                     break;
-                }
-                else
+                }else if ( i == 2 && Password != PassVal)
                 {
-                    io.PrintAt($"\nYour Password Was incorect<attempt{i}> Enter Password : ");
-                    if( i == 3)
-                    {
-                        io.Print("PLESE TAKE YOUR CARD !");
-                    }
-                    io.GetAt();
+                    io.Print("Your Password is wrong!\nPlese take your card !");
                     Flag = false;
+                    break;
                 }
+
+
 
                 ++i;
 

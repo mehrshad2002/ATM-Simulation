@@ -10,7 +10,7 @@
             List<UserAccount> accounts = new List<UserAccount>();
             accounts.Add(new UserAccount("Mehrhsad", "6104123409876789", "1234" , "300", "0312591020"));
             accounts.Add(new UserAccount("Aria", "6104566509875432", "1234", "550" , "0312591234"));
-            accounts.Add(new UserAccount("Mehrhsad", "6104209509876316", "1234", "900" , "1232591234"));
+            accounts.Add(new UserAccount("Bahar", "6104209509876316", "4321", "900" , "1232591234"));
 
             var passVal = "1";
             foreach( var account in accounts)
@@ -18,18 +18,12 @@
                 if( account.NumberCard == val)
                 {
                     passVal = account.Password;
+                    return Convert.ToString(passVal);
                 }
             }
-            if (passVal != null)
-            {
-                string PassStr = Convert.ToString(passVal);
-                return PassStr;
-            }
-            else
-            {
-                io.Print("Card is Invalid ");
-                return "!";
-            }
+
+            return "0";
+
         }
 
         public List<UserAccount> MelatData()
