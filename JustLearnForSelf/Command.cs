@@ -8,7 +8,7 @@ namespace JustLearnForSelf
 {
     public class Command
     {
-        public void Account(string cardNumber)
+        public void Account(string cardNumber , List<UserAccount> user )
         {
             
             IO io = new IO();
@@ -16,12 +16,13 @@ namespace JustLearnForSelf
             string Card4digit = cardNumber.Substring(0, 4);
 
             string Money;
-            List<UserAccount> UserList = new List<UserAccount>();
             switch (Card4digit)
             { 
                 case "6104":
-                    UserList = bank.MelatData();
-                    foreach(UserAccount userAccount in UserList)
+                    //
+                    user = bank.MelatData();
+                    
+                    foreach(UserAccount userAccount in user)//
                     {
                         if (userAccount.NumberCard == cardNumber)
                         {
@@ -44,22 +45,20 @@ namespace JustLearnForSelf
             
         }
 
-        public void GetMoney(string cardNumber)
+        public void GetMoney(string cardNumber , List<UserAccount> user )
         {
             IO io = new IO();
             Bank bank = new Bank();
             string Card4digit = cardNumber.Substring(0, 4);
-            string Money;
-            List<UserAccount> UserList = new List<UserAccount>();
             switch (Card4digit)
             {
                 case "6104":
-                    UserList = bank.MelatData();
+                    user = bank.MelatData();
                     int MoneyWant;
                     io.PrintAt("Enter How many Hezaar Toman You Need : ");
                     MoneyWant = Convert.ToInt32(io.Get());
 
-                    foreach (UserAccount userAccount in UserList)
+                    foreach (UserAccount userAccount in user)
                     {
                         if (userAccount.NumberCard == cardNumber)
                         {

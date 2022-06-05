@@ -32,7 +32,7 @@ namespace JustLearnForSelf
             return val;
         }
 
-        public bool GetCommand()
+        public bool GetCommand(List<UserAccount> user)
         {
             Print("Please Enter Your Command Number! || #<Commnad>");
             Print("1-See Your Account\n2-Get Money\n3-Send Money" +
@@ -45,19 +45,19 @@ namespace JustLearnForSelf
             }
             else
             {
-                CallCommand(CommandVal);
+                CallCommand(CommandVal , user);
                 return true;
             }
         }
         // --> Command
-        public void CallCommand( string val)
+        public void CallCommand( string val , List<UserAccount> user )
         {
             string CardNumber = ReadCard();
             Command command = new Command();
             switch (val)
             {
                 case "1":
-                    command.Account(CardNumber);
+                    command.Account(CardNumber , user);
                     break;
 
                 case "2":

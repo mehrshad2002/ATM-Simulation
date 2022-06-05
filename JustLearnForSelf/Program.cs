@@ -45,11 +45,15 @@ namespace JustLearnForSelf
             Card card = new Card();
             var CardNumber = io.ReadCard();
             bool FlagSatrt = io.CallCheck();
-
+            //
+            Bank bank = new Bank();
+            List<UserAccount> user = new List<UserAccount>();
+            user = bank.MelatData();
+            //
             while ( FlagSatrt)
             {
                 ATM atm = new ATM();
-                FlagSatrt = atm.Start();
+                FlagSatrt = atm.Start( user);
             }
 
 
