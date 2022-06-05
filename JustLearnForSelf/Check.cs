@@ -15,10 +15,10 @@
                 if( i == 1 )
                 {
                     io.Print("Welcome to the Mellat Bank.");
-
+                    io.PrintAt("Enter Your Password<attempt 1> : "); 
                 }
 
-                io.PrintAt("Enter Your Password : "); 
+
                 Password = io.Get();// get password from user 
 
                 if ( Password == PassVal)
@@ -28,7 +28,7 @@
                 }
                 else
                 {
-                    io.PrintAt($"\nYour Password Was incorect<attempt {i}");
+                    io.PrintAt($"\nYour Password Was incorect<attempt{i}> Enter Password : ");
                     if( i == 3)
                     {
                         io.Print("PLESE TAKE YOUR CARD !");

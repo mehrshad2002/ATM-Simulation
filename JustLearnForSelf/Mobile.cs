@@ -11,12 +11,15 @@ namespace JustLearnForSelf
         public string NationalCode { get; set; }
         public string PhoneNumber { get; set; }
         public string Data { get; set; }
+        public string Name { get; set; }
 
-        public Mobile( string nationaVal , string phonenumberval , string dataVal )
+
+        public Mobile( string nationaVal , string phonenumberval , string dataVal , string nameVal  )
         {
             NationalCode = nationaVal;
             PhoneNumber = phonenumberval;
             Data = dataVal;
+            Name = nameVal;
         }
     }
 }

@@ -72,7 +72,7 @@ namespace JustLearnForSelf
                     break;
 
                 case "5":
-                    command.SendCharge(CardNumber);
+                    command.SendCharge(CardNumber , user);
                     break;
 
                 default:

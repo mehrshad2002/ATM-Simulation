@@ -62,9 +62,9 @@
 
             IO io = new IO();
             List<Mobile> mobile = new List<Mobile>();
-            mobile.Add(new Mobile("0312591020", "09199310567" , $"{G1}"));
-            mobile.Add(new Mobile("0312591234", "09109647479" , $"{G2}"));
-            mobile.Add(new Mobile("1232591234", "09227098222" , $"{G3}"));
+            mobile.Add(new Mobile("0312591020", "09199310567" , $"{G1}" , "Mehrshad"));
+            mobile.Add(new Mobile("0312591234", "09109647479" , $"{G2}" , "Aria"));
+            mobile.Add(new Mobile("1232591234", "09227098222" , $"{G3}" , "Bahar"));
 
             return mobile;
         }
