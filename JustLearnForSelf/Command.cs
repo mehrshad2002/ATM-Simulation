@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO; 
 
 namespace JustLearnForSelf
 {
@@ -72,6 +73,16 @@ namespace JustLearnForSelf
                                 io.Print("Wait...!");
                                 io.Print("Plese Take Your Money");
                                 string NewMoney = Convert.ToString(MoneyInt - MoneyWant);
+
+                                string NameUser; 
+                                foreach( UserAccount users in user)
+                                {
+                                    if(userAccount.NumberCard == cardNumber)
+                                    {
+                                        NameUser = users.Name;
+                                        File.WriteAllText($"{NameUser}.txt" , NewMoney);
+                                    }
+                                }
                                 userAccount.Money = NewMoney;
                                 io.Print(userAccount.Money);
                             }

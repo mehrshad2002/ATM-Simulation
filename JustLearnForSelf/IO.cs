@@ -61,7 +61,7 @@ namespace JustLearnForSelf
                     break;
 
                 case "2":
-                    command.GetMoney(CardNumber);
+                    command.GetMoney(CardNumber , user );
                     break;
 
                 case "3":
