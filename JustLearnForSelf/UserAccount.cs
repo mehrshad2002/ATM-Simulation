@@ -12,13 +12,17 @@ namespace JustLearnForSelf
         public string NumberCard { get; set; }
         public string Password { get; set; }
         public string Money { get; set; }
+        public string NationalCode { get; set; }
 
-        public UserAccount( string nameVal , string NumberCardVal , string PasswordVal , string MoneyVal)
+
+        public UserAccount( string nameVal , string NumberCardVal 
+            , string PasswordVal , string MoneyVal , string nationalCode)
         {
             Name = nameVal;
             NumberCard = NumberCardVal;
             Password = PasswordVal;
             Money = MoneyVal;
+            NationalCode = nationalCode;
         }
     }
 }

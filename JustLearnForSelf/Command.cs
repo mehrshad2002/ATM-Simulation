@@ -102,14 +102,68 @@ namespace JustLearnForSelf
             }
 
         }
-        internal void SendMoney(string cardNumber)
+        internal void GetCharge(string cardNumber , List<UserAccount> user)
         {
-            throw new NotImplementedException();
-        }
+            IO io = new IO();
+            Bank bank = new Bank();
+            string Card4digit = cardNumber.Substring(0, 4);
+            switch (Card4digit)
+            {
+                case "6104":
+                    user = bank.MelatData();
+                    int MoneyWant;
+                    int GigWant;
+                    int Sum;
+                    io.PrintAt("How Many GB Do you want ?? ");
+                    GigWant = Convert.ToInt32(io.Get());
+                    Sum = GigWant * 4;
 
-        internal void GetCharge(string cardNumber)
-        {
-            throw new NotImplementedException();
+                    foreach (UserAccount userAccount in user)
+                    {
+                        if (userAccount.NumberCard == cardNumber)
+                        {
+                            int MoneyInt = Convert.ToInt32(userAccount.Money);// money in user account 
+                            if (MoneyInt < Sum )
+                            {
+                                io.Print("Sorry Your Money Is not Enogh!");
+                            }
+                            else
+                            {
+                                io.Print("Wait...!");
+                                io.Print("Charge Is succsesful!");
+                                // WITH FILE AND FOLDER WE CAN HAVE IS DATA GB 
+                                string NewMoney = Convert.ToString(MoneyInt - Sum );
+
+                                string NameUser;
+                                foreach (UserAccount users in user)
+                                {
+                                    if (userAccount.NumberCard == cardNumber)
+                                    {
+                                        NameUser = users.Name;
+                                        int SumGig = Convert.ToInt32(File.ReadAllText($"./MobileData/{NameUser}.txt"));
+                                        SumGig += GigWant;
+                                        File.WriteAllText($"./MobileData/{NameUser}.txt", Convert.ToString(SumGig));
+                                        File.WriteAllText($"{NameUser}.txt" , NewMoney);
+                                    }
+                                }
+                                userAccount.Money = NewMoney;
+                                io.Print(userAccount.Money);
+                            }
+                        }
+                    }
+                    break;
+
+                case "6393":
+                    break;
+
+                case "5892":
+                    break;
+
+                default:
+                    break;
+
+            }
+
         }
 
         internal void SendCharge(string cardNumber)

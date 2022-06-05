@@ -65,11 +65,10 @@ namespace JustLearnForSelf
                     break;
 
                 case "3":
-                    command.SendMoney(CardNumber);
                     break;
 
                 case "4":
-                    command.GetCharge(CardNumber);
+                    command.GetCharge(CardNumber , user);
                     break;
 
                 case "5":
