@@ -36,13 +36,13 @@
         {
 
             string M1 = "333";
-            M1 = File.ReadAllText("Mehrshad.txt");
+            M1 = File.ReadAllText("../../../txtData/MoneyData/Mehrshad.txt");
 
             string M2 = "300";
-            M2 = File.ReadAllText("Aria.txt");
+            M2 = File.ReadAllText("../../../txtData/MoneyData/Aria.txt");
 
             string M3 = "300";
-            M3 = File.ReadAllText("Bahar.txt");
+            M3 = File.ReadAllText("../../../txtData/MoneyData/Bahar.txt");
 
 
             IO io = new IO();
@@ -56,9 +56,9 @@
 
         public List<Mobile> MobileData()
         {
-            string G1 = File.ReadAllText("./MobileData/Mehrshad.txt");
-            string G2 = File.ReadAllText("./MobileData/Aria.txt");
-            string G3 = File.ReadAllText("./MobileData/Bahar.txt"); 
+            string G1 = File.ReadAllText("../../../txtData/MobileData/Mehrshad.txt");
+            string G2 = File.ReadAllText("../../../txtData/MobileData/Aria.txt");
+            string G3 = File.ReadAllText("../../../txtData/MobileData/Bahar.txt"); 
 
             IO io = new IO();
             List<Mobile> mobile = new List<Mobile>();

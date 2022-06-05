@@ -80,7 +80,7 @@ namespace JustLearnForSelf
                                     if (userAccount.NumberCard == cardNumber)
                                     {
                                         NameUser = users.Name;
-                                        File.WriteAllText($"{NameUser}.txt", NewMoney);
+                                        File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);
                                     }
                                 }
                             }
@@ -141,8 +141,8 @@ namespace JustLearnForSelf
                                         NameUser = users.Name;
                                         int SumGig = Convert.ToInt32(File.ReadAllText($"./MobileData/{NameUser}.txt"));
                                         SumGig += GigWant;
-                                        File.WriteAllText($"./MobileData/{NameUser}.txt", Convert.ToString(SumGig));
-                                        File.WriteAllText($"{NameUser}.txt", NewMoney);
+                                        File.WriteAllText($"../../../txtData/MobileData/{NameUser}.txt", Convert.ToString(SumGig));
+                                        File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);
                                     }
                                 }
                             }
@@ -209,10 +209,10 @@ namespace JustLearnForSelf
                                             io.Print("Charge Is succsesful!\n----");
                                             string NewMoney = Convert.ToString(MoneyInt - Sum);
 
-                                            int SumGig = Convert.ToInt32(File.ReadAllText($"./MobileData/{NameSecendUser}.txt"));
+                                            int SumGig = Convert.ToInt32(File.ReadAllText($"../../../txtData/MobileData/{NameSecendUser}.txt"));
                                             SumGig += GigWant;
-                                            File.WriteAllText($"{NameUser}.txt", NewMoney);
-                                            File.WriteAllText($"./MobileData/{NameSecendUser}.txt", Convert.ToString(SumGig));
+                                            File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);
+                                            File.WriteAllText($"../../../txtData/MobileData/{NameSecendUser}.txt", Convert.ToString(SumGig));
                                             
                                         }
 
