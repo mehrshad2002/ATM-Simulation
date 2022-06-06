@@ -6,6 +6,7 @@
         {
             Bank bank =  new Bank();
             IO io = new IO();
+            io.PrintAt("\n");
             bool Flag = io.GetCommand( user );
             return Flag;
         }

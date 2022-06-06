@@ -14,16 +14,16 @@ namespace JustLearnForSelf
 
             IO io = new IO();
             Bank bank = new Bank();
-            string Card4digit = cardNumber.Substring(0, 4);
+            string Card4digit = cardNumber.Substring(0, 4); // for select bank 
 
             string Money;
             switch (Card4digit)
             {
                 case "6104":
                     //
-                    user = bank.MelatData();
+                    user = bank.MelatData(); // get Melat Bank List
 
-                    foreach (UserAccount userAccount in user)//
+                    foreach (UserAccount userAccount in user)// Find right user
                     {
                         if (userAccount.NumberCard == cardNumber)
                         {
@@ -51,7 +51,6 @@ namespace JustLearnForSelf
             IO io = new IO();
             Bank bank = new Bank();
             string Card4digit = cardNumber.Substring(0, 4);
-            int Flag = 1;
             switch (Card4digit)
             {
                 case "6104":
@@ -75,7 +74,7 @@ namespace JustLearnForSelf
                             {
                                 io.Print("-----\nWait...!");
                                 io.Print("Plese Take Your Money\n-----");
-                                string NewMoney = Convert.ToString(MoneyInt - MoneyWant);
+                                string NewMoney = Convert.ToString(MoneyInt - MoneyWant);//Calculate new money
 
                                 string NameUser;
                                 foreach (UserAccount users in user)
@@ -83,8 +82,7 @@ namespace JustLearnForSelf
                                     if (String.Equals(cardNumber ,userAccount.NumberCard))
                                     {
                                         NameUser = userAccount.Name;
-                                        File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);
-                                        Flag = 0;
+                                        File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);//Write new money
                                     }
                                 }
                             }
@@ -113,7 +111,6 @@ namespace JustLearnForSelf
             {
                 case "6104":
                     user = bank.MelatData();
-                    int MoneyWant;
                     int GigWant;
                     int Sum;
                     io.PrintAt("-----\nHow Many GB Do you want ??");
@@ -146,7 +143,7 @@ namespace JustLearnForSelf
                                         int SumGig = Convert.ToInt32(File.ReadAllText($"../../../txtData/MoneyData/{NameUser}.txt"));
                                         SumGig += GigWant;
                                         File.WriteAllText($"../../../txtData/MobileData/{NameUser}.txt", Convert.ToString(SumGig));
-                                        File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney);
+                                        File.WriteAllText($"../../../txtData/MoneyData/{NameUser}.txt", NewMoney); // Mobile Data write
                                     }
                                 }
                             }
@@ -189,7 +186,7 @@ namespace JustLearnForSelf
 
                         foreach (Mobile userPhone in mobile)
                         {
-                            if (secendNumber == userPhone.PhoneNumber)
+                            if (secendNumber == userPhone.PhoneNumber)// find secend number 
                             {
                                 io.PrintAt("How many GB you want? : ");
                                 GigWant = Convert.ToInt32(io.Get());
